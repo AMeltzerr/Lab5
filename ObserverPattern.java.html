@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>ObserverPattern.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ObserverPattern.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s0">interface </span><span class="s1">Observer </span><span class="s2">{</span>
+    <span class="s0">void </span><span class="s1">update</span><span class="s2">(</span><span class="s1">String message</span><span class="s2">);</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Subscriber </span><span class="s0">implements </span><span class="s1">Observer </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">String name</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Subscriber</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">name </span><span class="s2">= </span><span class="s1">name</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">update</span><span class="s2">(</span><span class="s1">String message</span><span class="s2">) {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">name </span><span class="s2">+ </span><span class="s3">&quot; a primit notificarea: &quot; </span><span class="s2">+ </span><span class="s1">message</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Newsletter </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Observer</span><span class="s2">&gt; </span><span class="s1">observers </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+    <span class="s0">public void </span><span class="s1">subscribe</span><span class="s2">(</span><span class="s1">Observer observer</span><span class="s2">) {</span>
+        <span class="s1">observers</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">observer</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">notifyObservers</span><span class="s2">(</span><span class="s1">String message</span><span class="s2">) {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Observer observer </span><span class="s2">: </span><span class="s1">observers</span><span class="s2">) {</span>
+            <span class="s1">observer</span><span class="s2">.</span><span class="s1">update</span><span class="s2">(</span><span class="s1">message</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

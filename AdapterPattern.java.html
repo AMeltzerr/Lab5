@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>AdapterPattern.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AdapterPattern.java</font>
+</center></td></tr></table>
+<pre><span class="s0">// Interfață existentă</span>
+<span class="s2">interface </span><span class="s1">StandardCharger </span><span class="s3">{</span>
+    <span class="s2">void </span><span class="s1">charge</span><span class="s3">();</span>
+<span class="s3">}</span>
+
+<span class="s0">// Clasă incompatibilă</span>
+<span class="s2">class </span><span class="s1">EuropeanPlug </span><span class="s3">{</span>
+    <span class="s2">void </span><span class="s1">connect</span><span class="s3">() {</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;Conectat la priză europeană.&quot;</span><span class="s3">);</span>
+    <span class="s3">}</span>
+<span class="s3">}</span>
+
+<span class="s0">// Adapter care face EuropeanPlug compatibil cu StandardCharger</span>
+<span class="s2">class </span><span class="s1">PlugAdapter </span><span class="s2">implements </span><span class="s1">StandardCharger </span><span class="s3">{</span>
+    <span class="s2">private </span><span class="s1">EuropeanPlug plug</span><span class="s3">;</span>
+
+    <span class="s2">public </span><span class="s1">PlugAdapter</span><span class="s3">(</span><span class="s1">EuropeanPlug plug</span><span class="s3">) {</span>
+        <span class="s2">this</span><span class="s3">.</span><span class="s1">plug </span><span class="s3">= </span><span class="s1">plug</span><span class="s3">;</span>
+    <span class="s3">}</span>
+
+    <span class="s2">public void </span><span class="s1">charge</span><span class="s3">() {</span>
+        <span class="s1">plug</span><span class="s3">.</span><span class="s1">connect</span><span class="s3">();</span>
+    <span class="s3">}</span>
+<span class="s3">}</span>
+</pre>
+</body>
+</html>
